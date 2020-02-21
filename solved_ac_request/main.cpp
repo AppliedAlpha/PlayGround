@@ -19,6 +19,7 @@ std::wstring s2ws(const std::string& s)
 int main() {
     DWORD dwSize = 0, dwDownloaded;
     LPSTR source;
+    int level_res = -1;
 
     HINTERNET
             hSession = nullptr,
@@ -65,7 +66,16 @@ int main() {
                 ZeroMemory(source, dwSize + 1);
                 if (!WinHttpReadData(hRequest, (LPVOID)source, dwSize, &dwDownloaded))
                     printf("Error %lu in WinHttpReadData.\n", GetLastError());
-                else printf("%s\n", source);
+                else {
+                    std::string result = source;
+                    if (result.size() > 2) { // exception for undefined question
+                        std::cout << result << '\n';
+                        auto lt = result[9], rt = result[10];
+                        if (rt >= '0' && rt <= '9')
+                            level_res = (lt - '0') * 10 + (rt - '0');
+                        else level_res = lt - '0';
+                    }
+                }
                 free(source);
             }
         } while (dwSize > 0);
@@ -77,5 +87,8 @@ int main() {
     if (hRequest) WinHttpCloseHandle(hRequest);
     if (hConnect) WinHttpCloseHandle(hConnect);
     if (hSession) WinHttpCloseHandle(hSession);
+
+    printf("%d\n", level_res);
+
     return 0;
 }
