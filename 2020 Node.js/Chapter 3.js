@@ -94,7 +94,7 @@ console.log();
 
 // 5. Callback
 // Callback is essential in "Asynchronous"
-// Sequentual Handling -> Synchronous
+// Sequentual Event Handling -> Synchronous
 function add7(a, b, callback) {
     var sum = a + b;
     callback(sum);
