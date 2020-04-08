@@ -107,6 +107,6 @@ function print(result) {
 add7(1, 2, print); // function in member
 
 // Anonymous Function
-add8(2, 3, function(result) {
+add7(2, 3, function(result) {
     console.log(result);         
 });
