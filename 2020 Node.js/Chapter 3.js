@@ -49,3 +49,64 @@ console.log(add5(9, 10)); // Hoisting (Declaration is lower)
 
 function add5(x, y) { return x+y; };
 console.log();
+
+
+
+// 4. Object
+var aa = {}; // Empty Object 
+var bb = new Object();
+
+// First: Object Creation -> Adding
+var Person = {};
+Person.age = 18;
+Person['name'] = 'Adam';
+
+console.log(Person['age']);  // 18
+console.log(Person.name);    // Adam
+
+// Second: Initalizing
+var Person2 = {
+  age: 19,
+  name: 'Kevin',
+
+  add6: function() { // Method
+      this.age++;
+  }
+};
+
+console.log(Person2['age']);  // 19
+console.log(Person2.name);    // Kevin
+Person2.add6();
+console.log(Person2.age); // 20
+
+var Users = [ // Object Array
+    {name: "AAA", age: 18},
+    {name: "BBB", age: 19}
+];
+
+Users.push({name: "CCC", age: 20});
+
+console.log(Users.length); // 3
+console.log(Users[0]); // AAA Object
+console.log();
+
+
+
+// 5. Callback
+// Callback is essential in "Asynchronous"
+// Sequentual Handling -> Synchronous
+function add7(a, b, callback) {
+    var sum = a + b;
+    callback(sum);
+}
+  
+function print(result) { 
+   console.log(result);
+}                         
+  
+add7(1, 2, print); // function in member
+
+// Anonymous Function
+add8(2, 3, function(result) {
+    console.log(result);         
+});
