@@ -22,4 +22,4 @@ app.get('/query', function(req, res) {
 
 app.get('/music', function(req, res) {
     res.send(req.query.singer + '의 ' + req.query.title + '입니다.');
-});yes
+});
