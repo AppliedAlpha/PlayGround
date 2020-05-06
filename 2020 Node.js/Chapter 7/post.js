@@ -20,8 +20,8 @@ app.post('/music', function (req, res) {
     res.send('urlencoded -> title:' + title + ', singer:' + singer);
 });
 
-
-// For Test
-app.get('/', function (req, res) {
-    res.send("Hello, Express.");
+// URL Parameter (REST API)
+app.post("/music/:singer/:title", (req, res) => {
+    const {singer, title} = req.params;
+    res.send(`url parameter(post) -> ${singer}의 ${title}입니다.`);
 });
