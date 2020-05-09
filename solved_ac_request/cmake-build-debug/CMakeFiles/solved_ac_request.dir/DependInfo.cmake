@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "D:/GitHub/PlayGround/master/solved_ac_request/main.cpp" "D:/GitHub/PlayGround/master/solved_ac_request/cmake-build-debug/CMakeFiles/solved_ac_request.dir/main.cpp.obj"
+  "D:/GitHub/PlayGround/solved_ac_request/main.cpp" "D:/GitHub/PlayGround/solved_ac_request/cmake-build-debug/CMakeFiles/solved_ac_request.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

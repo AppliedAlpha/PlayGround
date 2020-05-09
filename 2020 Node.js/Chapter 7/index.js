@@ -31,3 +31,5 @@ app.get("/music/:singer/:title", (req, res) => {
     const {singer, title} = req.params;
     res.send(`url parameter(get) -> ${singer}의 ${title}입니다.`);
 });
+
+app.use("/music2", require("./api/music"));

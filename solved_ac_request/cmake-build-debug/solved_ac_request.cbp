@@ -8,18 +8,18 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/GitHub/PlayGround/master/solved_ac_request/cmake-build-debug"/>
+				<Option working_dir="D:/GitHub/PlayGround/solved_ac_request/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 all"/>
-					<CompileFile command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 all"/>
+					<CompileFile command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="solved_ac_request">
-				<Option output="D:/GitHub/PlayGround/master/solved_ac_request/cmake-build-debug/solved_ac_request.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/GitHub/PlayGround/master/solved_ac_request/cmake-build-debug"/>
+				<Option output="D:/GitHub/PlayGround/solved_ac_request/cmake-build-debug/solved_ac_request.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/GitHub/PlayGround/solved_ac_request/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
@@ -33,15 +33,15 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 solved_ac_request"/>
-					<CompileFile command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 solved_ac_request"/>
+					<CompileFile command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="solved_ac_request/fast">
-				<Option output="D:/GitHub/PlayGround/master/solved_ac_request/cmake-build-debug/solved_ac_request.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/GitHub/PlayGround/master/solved_ac_request/cmake-build-debug"/>
+				<Option output="D:/GitHub/PlayGround/solved_ac_request/cmake-build-debug/solved_ac_request.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/GitHub/PlayGround/solved_ac_request/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="msvc8"/>
@@ -55,37 +55,37 @@
 					<Add directory="C:\Program Files (x86)\Windows Kits\10\include\10.0.17763.0\cppwinrt"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 solved_ac_request/fast"/>
-					<CompileFile command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 solved_ac_request/fast"/>
+					<CompileFile command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="D:/GitHub/PlayGround/master/solved_ac_request/cmake-build-debug"/>
+				<Option working_dir="D:/GitHub/PlayGround/solved_ac_request/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
-					<CompileFile command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 edit_cache"/>
+					<CompileFile command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/GitHub/PlayGround/master/solved_ac_request/cmake-build-debug"/>
+				<Option working_dir="D:/GitHub/PlayGround/solved_ac_request/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
-					<DistClean command="nmake /NOLOGO /f D:\GitHub\PlayGround\master\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<Build command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
+					<DistClean command="nmake /NOLOGO /f D:\GitHub\PlayGround\solved_ac_request\cmake-build-debug\Makefile VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/GitHub/PlayGround/master/solved_ac_request/main.cpp">
+		<Unit filename="D:/GitHub/PlayGround/solved_ac_request/main.cpp">
 			<Option target="solved_ac_request"/>
 		</Unit>
-		<Unit filename="D:/GitHub/PlayGround/master/solved_ac_request/CMakeLists.txt">
+		<Unit filename="D:/GitHub/PlayGround/solved_ac_request/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

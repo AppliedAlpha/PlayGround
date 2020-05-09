@@ -1,4 +1,4 @@
-# Install script for directory: D:/GitHub/PlayGround/master/solved_ac_request
+# Install script for directory: D:/GitHub/PlayGround/solved_ac_request
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/GitHub/PlayGround/master/solved_ac_request/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/GitHub/PlayGround/solved_ac_request/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
