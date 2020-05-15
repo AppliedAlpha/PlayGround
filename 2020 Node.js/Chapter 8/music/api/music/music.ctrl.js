@@ -5,9 +5,9 @@ let music = [
     { id: 3, title: "별보러가자", singer: "적재" },
   ];
   
-  // 목록조회
-  // - 성공 : limit 수만큼 music 객체를 담은 배열 리턴 (200 : OK)
-  // - 실패 : limit가 숫자형이 아니면 400을 응답 (400: Bad Request)
+// 목록조회
+// - 성공 : limit 수만큼 music 객체를 담은 배열 리턴 (200 : OK)
+// - 실패 : limit가 숫자형이 아니면 400을 응답 (400: Bad Request)
   const list = (req, res) => {
     // 127.0.0.1:3000/music?limit=2
     req.query.limit = req.query.limit || 10;
@@ -20,4 +20,38 @@ let music = [
     res.json(music.slice(0, limit));
   };
 
-  module.exports = {list};
+// 상세조회
+// - 성공 : id에 해당하는 music 객체 리턴 (200 : OK)
+// - 실패 : id가 숫자가 아닐 경우 400 응답, 해당하는 id가 없는 경우 404 응답 (404 : Not Found)
+const detail = (req, res) => {
+  // 127.0.0.1:3000/music/1
+  const id = parseInt(req.params.id, 10);
+
+  if (Number.isNaN(id)) {
+    return res.status(400).end();
+  }
+
+  const result = music.find((m) => m.id === id);
+
+  if (!result) return res.status(404).end();
+  res.status(200).json(result);
+};
+
+// 등록
+// - 성공 : 201 응답, 생성된 User 객체 반환 (201 : Created)
+// - 실패 : 입력값 누락 시 400 반환 (400 : Bad Request)
+const create = (req, res) => {
+  console.log(req.body);
+  const title = req.body.title;
+  const singer = req.body.singer;
+  if (!title) return res.status(400).end();
+  if (!singer) return res.status(400).end();
+
+  const id = Date.now(); // 1970년 1월 1일 0시 0분 0초부터 현재까지 경과된 밀리 초를 반환
+  const m = { id, title, singer };
+  music.push(m);
+  res.status(201).json(music);
+};
+
+
+module.exports = {list, detail, create};
