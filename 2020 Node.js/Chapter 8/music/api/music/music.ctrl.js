@@ -53,5 +53,40 @@ const create = (req, res) => {
   res.status(201).json(music);
 };
 
+// 변경
+// - 성공 : id에 해당하는 객체 반환 (200 : OK)
+// - 실패 : id가 숫자가 아닐 경우 400 응답, id가 없을 경우 400 응답 (400 : Bad Request)
+//          없는 id일 경우 404 응답 (404 : Not Found)
+const update = (req, res) => {
+  // 127.0.0.1:3000/user/2
+  const id = parseInt(req.params.id, 10);
+  if (Number.isNaN(id)) return res.status(400).end();
 
-module.exports = {list, detail, create};
+  const title = req.body.title;
+  const singer = req.body.singer;
+  //if (!name) return res.status(400).end();
+
+  const result = music.find((m) => m.id === id);
+  if (!result) return res.status(404).end();
+
+  if (title) result.title = title;
+  if (singer) result.singer = singer;
+  res.status(200).json(result);
+};
+
+// 삭제
+// - 성공 : 삭제 후 결과 배열 리턴 (200 : OK)
+// - 실패 : id가 숫자가 아닐 경우 400 응답 (400 : Bad Request)
+const remove = (req, res) => {
+  // 127.0.0.1:3000/users/1
+  const id = parseInt(req.params.id, 10);
+
+  if (Number.isNaN(id)) {
+    return res.status(400).end();
+  }
+
+  music = music.filter((m) => m.id !== id);
+  res.status(200).json(music);
+};
+
+module.exports = {list, detail, create, update, remove};
