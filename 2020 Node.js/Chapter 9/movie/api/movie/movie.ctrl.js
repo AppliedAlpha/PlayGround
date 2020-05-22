@@ -1,79 +1,83 @@
-// 데이터
-let movie = [
-    { id: 1, title: "스타워즈", director: "조지 루커스", year: "1977" },
-    { id: 2, title: "아바타", director: "제임스 카메론", year: "2009" },
-    { id: 3, title: "인터스텔라", director: "크리스토퍼 놀란", year: "2014" },
-  ];
-  
+var MovieModel = require("../../models/movie");
 
-  const list = (req, res) => {
-    req.query.limit = req.query.limit || 10;
-    const limit = parseInt(req.query.limit, 10);
-  
-    if (Number.isNaN(limit)) {
-      return res.status(400).end();
-    }
-  
-    res.json(movie.slice(0, limit));
-  };
-
-const detail = (req, res) => {
-  const id = parseInt(req.params.id, 10);
-
-  if (Number.isNaN(id)) {
-    return res.status(400).end();
-  }
-
-  const result = movie.find((m) => m.id === id);
-
-  if (!result) return res.status(404).end();
-  res.status(200).json(result);
-};
-
+// 등록
+// - 성공 : 201 응답, 생성된 movie 객체 반환 (201 : Created)
+// - 실패 : 입력값 누락 시 400 반환 (400 : Bad Request)
 const create = (req, res) => {
-  //console.log(req.body);
   const title = req.body.title;
   const director = req.body.director;
   const year = req.body.year;
-  if (!title) return res.status(400).end();
-  if (!director) return res.status(400).end();
-  if (!year) return res.status(400).end();
+  if (!title || !director) return res.status(400).end();
 
-  const id = Date.now();
-  const m = { id, title, director, year };
-  movie.push(m);
-  res.status(201).json(movie);
+  // save() : 모델의 instance인 document를 생성
+  let movie = new MovieModel({ title, director, year });
+  movie.save((err, result) => {
+    if (err) return res.status(500).end();
+    res.status(201).json(result);
+  });
 };
 
+// 목록조회
+// - 성공 : limit 수만큼 movie 객체를 담은 배열 리턴 (200 : OK)
+// - 실패 : limit가 숫자형이 아니면 400을 응답 (400: Bad Request)
+const list = (req, res) => {
+  // 127.0.0.1:3000/movie?limit=2
+  req.query.limit = req.query.limit || 10;
+  const limit = parseInt(req.query.limit, 10);
 
-const update = (req, res) => {
-  const id = parseInt(req.params.id, 10);
-  if (Number.isNaN(id)) return res.status(400).end();
-
-  const title = req.body.title;
-  const director = req.body.director;
-  const year = req.body.year;
-  //if (!name) return res.status(400).end();
-
-  const result = movie.find((m) => m.id === id);
-  if (!result) return res.status(404).end();
-
-  if (title) result.title = title;
-  if (director) result.director = director;
-  if (year) result.year = year;
-  res.status(200).json(result);
-};
-
-const remove = (req, res) => {
-  // 127.0.0.1:3000/users/1
-  const id = parseInt(req.params.id, 10);
-
-  if (Number.isNaN(id)) {
+  if (Number.isNaN(limit)) {
     return res.status(400).end();
   }
 
-  movie = movie.filter((m) => m.id !== id);
-  res.status(200).json(movie);
+  MovieModel.find((err, result) => {
+    if (err) return res.status(500).end();
+    res.json(result);
+  }).limit(limit);
 };
 
-module.exports = {list, detail, create, update, remove};
+// 상세조회
+// - 성공 : id에 해당하는 movie 객체 리턴 (200 : OK)
+// - 실패 : id가 숫자가 아닐 경우 400 응답, 해당하는 id가 없는 경우 404 응답 (404 : Not Found)
+const detail = (req, res) => {
+  // 127.0.0.1:3000/movie/1
+  const id = req.params.id;
+
+  MovieModel.findById(id, (err, result) => {
+    if (err) return res.status(500).end();
+    if (!result) return res.status(404).end();
+    res.json(result);
+  });
+};
+
+// 변경
+// - 성공 : id에 해당하는 객체 반환 (200 : OK)
+// - 실패 : 없는 id일 경우 404 응답 (404 : Not Found)
+const update = (req, res) => {
+  // 127.0.0.1:3000/movie/2
+  const id = req.params.id;
+  const title = req.body.title;
+  const director = req.body.director;
+  const year = req.body.year;
+
+  MovieModel.findByIdAndUpdate(id, { title, director, year }, (err, result) => {
+    if (err) return res.status(500).end();
+    if (!result) return res.status(404).end();
+    res.json(result);
+  });
+};
+
+// 삭제
+// - 성공 : 삭제 후 결과 배열 리턴 (200 : OK)
+// - 실패 : 해당 id가 없는 경우 404 (404 : Not Found)
+const remove = (req, res) => {
+  // 127.0.0.1:3000/movie/1
+  const id = req.params.id;
+
+  MovieModel.findByIdAndDelete(id, (err, result) => {
+    if (err) return res.status(500).end();
+    if (!result) return res.status(404).end();
+    res.json(result);
+  });
+};
+
+module.exports = {create, list, detail, update, remove}

@@ -1,11 +1,19 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/')
+mongoose.connect('mongodb://localhost/movie',
+{useNewUrlParser: true, useUnifiedTopology: true})
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error: '));
+db.once('open', function() {
+  console.log('Database connected!!');
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
