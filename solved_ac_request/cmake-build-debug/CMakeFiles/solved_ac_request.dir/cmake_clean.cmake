@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/solved_ac_request.dir/main.cpp.obj"
+  "libsolved_ac_request.dll.a"
   "solved_ac_request.exe"
   "solved_ac_request.exe.manifest"
-  "solved_ac_request.lib"
   "solved_ac_request.pdb"
 )
 
