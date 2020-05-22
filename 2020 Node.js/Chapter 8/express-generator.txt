@@ -1,0 +1,16 @@
+1. Express Generator (생성기)
+- Express Application에 대한 Skeleton Code 생성
+
+2. npm i -g express-generator
+
+3. express --view=ejs project_name
+
+4. cd project_name -> npm i -> npm start
+
+5. Environmental Variable
+1) generator .env file
+2) NAME=VALUE format (ex: PORT=3001)
+3) npm i dotenv
+4) require("dotenv").config()
+5) process.env.PORT 사용 가능
+
