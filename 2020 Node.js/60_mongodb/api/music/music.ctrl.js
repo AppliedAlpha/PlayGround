@@ -22,7 +22,8 @@ const list = (req, res) => {
     // limit수만큼 music객체를 담은 배열
     MusicModel.find((err, result) => {
         if (err) return res.status(500).end(); // next(err)
-        res.json(result);
+        //res.json(result);
+        res.render("music/list", {result});
     }).limit(limit);
 };
 

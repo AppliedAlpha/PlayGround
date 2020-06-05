@@ -26,6 +26,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/", (req, res) => {
+    res.render("index");
+});
+
 // 라우팅 모듈 설정 (localhost:3000/api/music)
 app.use("/api", require("./api")); // api/index.js
 
