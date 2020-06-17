@@ -5,6 +5,10 @@
   <%- include("../menu"); %>
   <%- include("../footer"); %>
   <!-- Start your project here-->  
+  <button type="button" class="btn btn-purple btn-md"
+  onclick="location.href='/api/music/new'"
+  >Add</button>
+
   <div class="row row-cols-1 row-cols-md-3">
       <% result.forEach(music => { %>
     

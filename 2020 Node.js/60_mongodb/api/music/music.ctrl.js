@@ -24,7 +24,7 @@ const list = (req, res) => {
         if (err) return res.status(500).end(); // next(err)
         //res.json(result);
         res.render("music/list", {result});
-    }).limit(limit);
+    }).limit(limit).sort({_id: -1}); // desc
 };
 
 // 상세 조회 (localhost:3000/apimusic/:id)
@@ -45,7 +45,8 @@ const detail = (req, res) => {
     MusicModel.findOne({ _id: id }, (err, result) => {
         if (err) return res.status(500).end();
         if (!result) return res.status(404).end();
-        res.json(result);
+        //res.json(result);
+        res.render("music/detail", {result});
     });
 };
 
@@ -54,7 +55,7 @@ const detail = (req, res) => {
 // - 실패 :singer, title 값 누락 시 400 반환 (400: Bad Request)
 const create = (req, res) => {
     const { singer, title } = req.body;
-    //if (!singer || !title) return res.status(400).end();
+    if (!singer || !title) return res.status(400).send("필수항목이 없습니다");
 
     // 1. Model의 객체의 Document 생성 후 save
     /*const music = new MusicModel({ singer, title });
@@ -65,7 +66,7 @@ const create = (req, res) => {
 
     // 2. Model.create()
     MusicModel.create({ singer, title }, (err, result) => {
-        if (err) throw err;
+        if (err) return res.status(500).send("등록 시 오류가 발생했습니다");
         res.status(201).json(result);
     });
 };
@@ -111,4 +112,17 @@ const remove = (req, res) => {
     });
 };
 
-module.exports = { list, detail, create, update, remove, checkId };
+const showCreatePage = (req, res) => {
+    res.render("music/create");
+};
+
+const showUpdatePage = (req, res) => {
+    const id = req.params.id;
+    MusicModel.findById(id, (err, result) => {
+        if (err) return res.status(500).send("조회오류");
+        if (!result) return res.status(404).send("해당 결과 미존재");
+        res.render("music/update", { result });
+    });
+};
+
+module.exports = { list, detail, create, update, remove, showCreatePage, showUpdatePage, checkId };

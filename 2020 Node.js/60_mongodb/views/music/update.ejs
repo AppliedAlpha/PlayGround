@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../header"); %>
+<body>
+  <%- include("../menu"); %>
+  <%- include("../footer"); %>
+<form id="updateForm">
+
+  <!-- Material input -->
+<div class="md-form">
+  <input type="text" id="singer" class="form-control" value="<%= result.singer %>" required />
+  <label for="singer">Input Singer</label>
+</div>
+
+<div class="md-form">
+  <input type="text" id="title" class="form-control" value="<%= result.title %>" required />
+  <label for="title">Input Title</label>
+</div>
+
+<button type="submit" class="btn btn-cyan btn-md"
+          
+          >Save</button>
+</form>
+<script>
+  $(function () {
+    $("#updateForm").submit((event) => {
+      event.preventDefault();
+      // Submit
+      const singer = $("#singer").val();
+      const title = $("#title").val();
+      console.log(singer, title);
+      // alert(Okay);
+
+      $.ajax({
+        url: "/api/music/<%= result._id %>",
+        type: "PUT",
+        data: { singer, title }
+      }).done(() => {
+        location.href = "/api/music/<%= result._id %>";
+      }).fail((request, status, error) => {
+        alert(request.responseText);
+      })
+    });
+  });
+</script>
+</body>
+</html>

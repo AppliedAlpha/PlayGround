@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("../header"); %>
+<body>
+  <%- include("../menu"); %>
+  <%- include("../footer"); %>
+  <!-- Material input -->
+<div class="md-form">
+  <input type="text" id="singer" class="form-control" value="<%= result.singer %>" readonly />
+  <label for="singer">Singer</label>
+</div>
+
+<div class="md-form">
+  <input type="text" id="title" class="form-control" value="<%= result.title %>" readonly />
+  <label for="title">Title</label>
+</div>
+
+<div class="md-form">
+  <input type="text" id="created" class="form-control" value="<%= result.created %>" readonly />
+  <label for="created">Created</label>
+</div>
+
+<button type="button" class="btn btn-cyan btn-md"
+          onclick="location.href='/api/music/'"
+          >Back</button>
+
+<button type="button" class="btn btn-dark-green btn-md"
+          onclick="location.href='/api/music/<%= result._id %>/edit'"
+          >Modify</button>
+
+</body>
+</html>
