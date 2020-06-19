@@ -106,8 +106,8 @@ const remove = (req, res) => {
 
     // 삭제처리 (FindByIdAnd)
     MusicModel.findByIdAndDelete(id, (err, result) => {
-        if (err) return res.status(500).end();
-        if (!result) return res.status(404).end();
+        if (err) return res.status(500).send("삭제 시 오류 발생");
+        if (!result) return res.status(404).send("해당 정보가 없습니다.");
         res.json(result);
     });
 };

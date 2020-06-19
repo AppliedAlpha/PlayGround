@@ -28,5 +28,27 @@
           onclick="location.href='/api/music/<%= result._id %>/edit'"
           >Modify</button>
 
+<button type="button" class="btn btn-danger btn-md" id="deleteBtn"
+          >Delete</button>
+
+<script>
+  $(function () {
+    // deleteBtn Click Event Handling
+    $("#deleteBtn").on("click", () => {
+      const result = confirm("삭제할건가요?");
+      if (result) {
+        $.ajax({
+          url: "/api/music/<%= result._id %>",
+          type: "DELETE"
+        }).done(() => {
+          alert("삭제되었습니다.");
+          location.href = "/api/music";
+        }).fail((request, status, error) => {
+          alert(request.responseText);
+        });
+      }
+    });
+  });
+</script>
 </body>
 </html>
