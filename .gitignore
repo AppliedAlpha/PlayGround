@@ -13,6 +13,6 @@ doc/*.txt
 # ignore all .pdf files in the doc/ directory
 doc/**/*.pdf
 
-2020 Node.js/Say_Money/
+2020 Node.js/grandma/
 
 2020 Node.js/Chapter 9/
