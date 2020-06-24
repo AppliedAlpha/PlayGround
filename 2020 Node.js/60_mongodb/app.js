@@ -8,7 +8,7 @@ require("dotenv").config();
 
 var app = express();
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true });
 
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
