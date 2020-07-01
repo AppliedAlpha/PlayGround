@@ -32,4 +32,23 @@ const signup = (req, res) => {
     });
 };
 
-module.exports = { showSignupPage, showLoginPage, signup };
+// Email, Password 일치 시 200
+// 미입력 400, 없는 이메일 404, 패스워드 미일치 500
+const login = (req, res) => {
+    const { email, password } = req.body;
+    if (!email || !password) return res.status(400).send("비어있음");
+    UserModel.findOne({ email }, (err, user) => {
+        if (err) return res.status(500).send("로그인 시 오류");
+        if (!user) return res.status(404).send("가입 안 된 계정");
+        
+        bcrypt.compare(password, user.password, (err, isMatch) => {
+            if (err) return res.status(500).send("로그인 시 오류.");
+            if (!isMatch) return res.status(500).send("비밀번호 틀림");
+
+            // 다 맞으면 토큰 발급 (jsonwebtoken)
+            
+        });
+    });
+}
+
+module.exports = { showSignupPage, showLoginPage, signup, login };

@@ -68,7 +68,7 @@
         type: "POST",
         data: { email, password }
       }).done(() => {
-          alert("로그인 성공");
+          // alert("로그인 성공");
           location.href = "/";
       }).fail((request, status, error) => {
         alert(request.responseText);
