@@ -92,4 +92,29 @@ const checkAuth = (req, res, next) => {
     });
 };
 
-module.exports = { showSignupPage, showLoginPage, signup, login, checkAuth };
+const logout = (req, res) => {
+    const token = req.cookies.token;
+    // token verify
+    jwt.verify(token, "secret", (err, _id) => {
+        if (err) {
+            res.clearCookie("token");
+            return res.render("user/login");
+        }
+        
+        UserModel.findOneAndUpdate(_id, { token: "" }, { new: true }, (err, result) => {
+            /*
+            if (err) return res.status(500).send("인증 오류");
+            if (!user) return res.render("user/login");
+            res.locals.user = { name: user.name, role: user.role };
+            next();
+            */
+            if (err) return res.status(500).end();
+            if (!result) return res.status(404).end();
+            res.clearCookie("token");
+            res.redirect("/");
+        });
+    
+    });
+};
+
+module.exports = { showSignupPage, showLoginPage, signup, login, checkAuth, logout };
