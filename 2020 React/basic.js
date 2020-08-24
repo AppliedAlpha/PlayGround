@@ -38,3 +38,56 @@ const arrobj = [
 
 const [f1, f2, f3] = arrobj;
 console.log(f1, f2, f3);
+
+const [
+    {id: i1, text: t1},
+    {id: i2, text: t2},
+    {id: i3, text: t3}
+] = arrobj;
+console.log(i1, i2, i3, t1, t2, t3);
+
+let c = 1, d = 2;
+[d, c] = [c, d];
+console.log(c, d);
+
+
+
+// 3. Immutability
+// Object
+const ob = {a: 1, b: 2};
+// ob.b = 3; <-- Not Allowed
+
+const newOb = {...ob, b: 3};
+console.log(newOb);
+
+// Array + Object
+const todos = [
+    {id: 1, text: "DB", done: true},
+    {id: 2, text: "RenPy", done: false},
+    {id: 3, text: "Novel", done: false}
+];
+// todos.push({ ... }) <-- Not Allowed
+
+const newTodos = todos.concat(
+    {id: 4, text: "Plan", done: false}
+);
+console.log(newTodos);
+
+const filteredTodos = newTodos.filter((todo) => todo.id !== 3);
+console.log(filteredTodos);
+
+const toggledTodos = filteredTodos.map((todo) => todo.id === 2 ? {...todo, done: !todo.done} : todo);
+console.log(toggledTodos);
+
+
+
+// 4. Module Import & Export
+// Node.js (moment): CommonJS
+const moment = require("moment");
+
+module.exports = {};
+
+// React: ES6 (ES2015)
+import moment from "moment";
+
+export default {};
