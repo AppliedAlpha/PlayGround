@@ -70,7 +70,10 @@ const todos = [
 
 const newTodos = todos.concat(
     {id: 4, text: "Plan", done: false}
-);
+); // Not Perfect?
+const newTodos2 = [
+    {...todos[0]}, {...todos[1]}, {...todos[2]}, 
+];
 console.log(newTodos);
 
 const filteredTodos = newTodos.filter((todo) => todo.id !== 3);

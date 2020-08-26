@@ -16,7 +16,7 @@
 
 <br />
 
- ### Before Learning React
+### Before Learning React
 - /basic.js
 
 <br />
@@ -24,3 +24,9 @@
 ### React Environment Setting
 - Node.js
 - Yarn (Like Improved npm?)
+- npx create-react-app [Name]
+
+<br />
+
+### Props (Properties)
+- Data Transfer From Parent To Child Component
