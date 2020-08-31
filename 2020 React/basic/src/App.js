@@ -23,11 +23,8 @@ function App() {
 
   return (
   <>
-    { /* Comment */ }
-    <div style={style}>{name}</div>
-    <div className="box" />
-    <Hello />
-    <Hello name="testName" color="blue" />
+    { /* <div style={style}>{name}</div>, <div className="box" /> */ }
+    <Hello2 id="3405" name="김지훈" color="blue">내별명</Hello2>
     <Hello2 />
   </>
   );
