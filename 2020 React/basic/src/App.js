@@ -1,6 +1,8 @@
 import React from 'react';
 import Hello from './Hello';
 import Hello2 from './Hello2';
+import Hello3 from './Hello3';
+import StateSample from "./StateSample";
 import './App.css';
 
 /*
@@ -14,6 +16,10 @@ import './App.css';
  */
 
 function App() {
+  return <StateSample />
+}
+
+function App2() {
   const name = "React";
   const style = {
     backgroundColor: "yellow",
@@ -24,8 +30,11 @@ function App() {
   return (
   <>
     { /* <div style={style}>{name}</div>, <div className="box" /> */ }
+    <Hello name={name} color="blue" isLoggedIn={true} />
     <Hello2 id="3405" name="김지훈" color="blue">내별명</Hello2>
     <Hello2 />
+    <Hello3 messages={["11", "22", "33"]} />
+    <Hello3 />
   </>
   );
 }

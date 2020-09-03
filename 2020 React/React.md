@@ -30,3 +30,17 @@
 
 ### Props (Properties)
 - Data Transfer From Parent To Child Component
+- 'read-only' in child component
+
+<br />
+
+### Conditional Rendering
+- Rendering is different by the condition -> Ternary Operator ```(condition) ? (when true) : (when false)```
+- Only Rendering when ```True``` -> ```&&```
+
+<br />
+
+### State
+- Declared in Component, changing value is accepted.
+- Before 16.8: Unavailable in Functional Component.
+- After 16.8: 'Hook' feature included.
