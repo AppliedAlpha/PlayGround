@@ -3,7 +3,9 @@ import Hello from './Hello';
 import Hello2 from './Hello2';
 import Hello3 from './Hello3';
 import StateSample from "./StateSample";
+import StateSample2 from "./StateSample2";
 import './App.css';
+import InputSample from './InputSample';
 
 /*
  <<JSX Rule>>
@@ -16,7 +18,7 @@ import './App.css';
  */
 
 function App() {
-  return <StateSample />
+  return <InputSample />
 }
 
 function App2() {

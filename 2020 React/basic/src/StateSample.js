@@ -3,25 +3,15 @@ import React, { useState } from "react";
 function StateSample() {
     const [color, setColor] = useState("black");
 
-    const red = () => {
-        setColor("red");
-    }
-
-    const green = () => {
-        setColor("green");
-    }
-
-    const blue = () => {
-        setColor("blue");
-    }
+    const set = (prev) => {setColor(prev);};
 
     return (
         <>
         <div>
             <p style={{color: color}}>색상 바꾸기</p>
-            <button onClick={red}>빨간색</button>
-            <button onClick={green}>초록색</button>
-            <button onClick={blue}>파란색</button>
+            <button onClick={() => set("red")}>빨간색</button>
+            <button onClick={() => set("green")}>초록색</button>
+            <button onClick={() => set("blue")}>파란색</button>
         </div>
         </>
     );
