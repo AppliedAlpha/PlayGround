@@ -46,6 +46,3 @@
 - After 16.8: 'Hook' feature included.
 
 <br />
-
-### Input Field
-- 
